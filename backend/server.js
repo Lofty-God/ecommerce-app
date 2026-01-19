@@ -23,7 +23,7 @@ connectCloudinary();
 
 // middlewares
 app.use(express.json());
-import cors from 'cors';
+app.use(cors());
 
 const allowedOrigins = [
   'https://ecommerce-app-frontend-pearl-ten.vercel.app'
