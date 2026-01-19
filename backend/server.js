@@ -23,9 +23,10 @@ connectCloudinary();
 
 // middlewares
 app.use(express.json());
-app.use(cors());
+
 
 const allowedOrigins = [
+  'http://localhost:5173',
   'https://ecommerce-app-frontend-pearl-ten.vercel.app'
 ];
 
@@ -47,3 +48,4 @@ app.get('/', (req,res)=>{
 })
 
 app.listen(port, ()=>console.log('Server is working on PORT: '+ port))
+// export default app;
