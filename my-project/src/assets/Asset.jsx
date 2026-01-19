@@ -33,7 +33,7 @@ import kid_Purf_short_sleeve from './kid_Purf_short_sleeve.webp'
 import kid_beautiful_little_girl from './kid_beautiful_little_girl.avif'
 import kid_boy_in_green_blue_zip_up_jacket from './kid_boy_in_green_blue_zip_up_jacket.avif'
 import kid_girl_in_black_white_poker_dress from './kid_girl_in_black_white_poker_dress.avif'
-import kid_sitting_on_the_ground from './kid_sitting_on_the_ground.avif'
+import Kid_sitting_on_the_ground from './Kid_sitting_on_the_ground.avif'
 import kid_wearing_a_green_hat from './kid_wearing_a_green_hat.avif'
 import kid_sitting_next_to_each_other from './kid_sitting_next_to_each_other.avif'
 import women_beautiful_flower_dress from './women_beautiful_flower_dress.webp'
@@ -467,7 +467,7 @@ export const products=[
     },
      {
         _id:'kk15',
-        image:[kid_sitting_on_the_ground],
+        image:[Kid_sitting_on_the_ground],
         price: 17,
         name: 'kid sitting on the ground',
         bestseller: false,
