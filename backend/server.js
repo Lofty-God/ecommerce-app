@@ -48,4 +48,4 @@ app.get('/', (req,res)=>{
 })
 
 app.listen(port, ()=>console.log('Server is working on PORT: '+ port))
-// export default app;
+export default app;
