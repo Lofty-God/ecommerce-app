@@ -27,7 +27,7 @@ app.use(express.json());
 
 const allowedOrigins = [
   'http://localhost:5173',
-  'https://ecommerce-app-frontend-pearl-ten.vercel.app'
+  'https://ecommerce-frontend-project-tawny.vercel.app'
 ];
 
 app.use(cors({
