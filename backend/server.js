@@ -29,7 +29,8 @@ const allowedOrigins = [
   'http://localhost:5174',
   'http://localhost:5173',
   'https://ecommerce-frontend-project-tawny.vercel.app',
-  'https://ecommerce-app-admin-project.vercel.app'
+  'https://ecommerce-app-admin-project.vercel.app',
+  'https://e-commerce-frontend-project-zeta.vercel.app'
 ];
 
 app.use(cors({
