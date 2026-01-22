@@ -55,13 +55,6 @@ import women_white_sleeveless_top from './women_white_sleeveless_top.avif'
 
 
 
-
-
-
-
-
-
-
 import logo from './logo.png'
 import search_icon from './search_icon.webp'
 import dropdown_icon from './dropdown_icon.png' 
