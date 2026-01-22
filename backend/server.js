@@ -33,8 +33,9 @@ const allowedOrigins = [
 ];
 
 app.use(cors({
-  origin: allowedOrigins,
-  methods: ['GET','POST','PUT','DELETE'],
+  // origin: allowedOrigins,
+  origin: 'https://ecommerce-app-frontend-three-mu.vercel.app, https://ecommerce-app-admin-project.vercel.app/add', 
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
 
@@ -45,9 +46,9 @@ app.use('/api/product', productRouter)
 app.use('/api/cart', cartRouter)
 app.use('/api/order', orderRouter)
 
-app.get('/', (req,res)=>{
-    res.send("API Working")
+app.get('/', (req, res) => {
+  res.send("API Working")
 })
 
-app.listen(port, ()=>console.log('Server is working on PORT: '+ port))
+app.listen(port, () => console.log('Server is working on PORT: ' + port))
 export default app;
