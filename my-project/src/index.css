@@ -21,14 +21,7 @@ a.active hr{
     color: white;
   }
 }
-/* ✅ Dropdown menu styling only — no display rules */ 
-.dropdown-menu { 
-  background-color: #f1f5f9; /* Tailwind's slate-100 */ 
-  color: #6b7280; /* Tailwind's gray-500 */ 
-  border-radius: 0.25rem; /* rounded corners */ 
-  padding: 0.5rem; /* spacing */ 
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* subtle shadow */
-}
+
 
 /* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
