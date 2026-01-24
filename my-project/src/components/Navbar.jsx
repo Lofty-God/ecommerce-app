@@ -78,8 +78,8 @@ const Navbar = () => {
                         </button>
 
                         {showProfile && (
-                            <div className="absolute right-0 top-full mt-2 bg-white shadow-lg rounded z-50 w-40">
-                                <p className="py-2 px-4 text-sm font-medium">My Profile</p>
+                            <div className="absolute right-0 top-full mt-2 shadow-lg rounded z-50 w-32 bg-slate-100 text-gray-500">
+                                <p className="py-2 px-4 text-sm font-medium hover:text-black cursor-pointer">My Profile</p>
                                 <p
                                     onClick={() => navigate("/orders")}
                                     className="py-2 px-4 text-sm font-medium hover:text-black cursor-pointer"
