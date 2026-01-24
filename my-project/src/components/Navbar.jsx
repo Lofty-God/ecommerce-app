@@ -70,7 +70,7 @@ const Navbar = () => {
                         onMouseEnter={() => setShowProfile(true)}
                         onMouseLeave={() => setShowProfile(false)}
                     >
-                        <button
+                        <button className="mb-1"
                             onClick={() => setShowProfile((prev) => !prev)}
                             aria-label="Profile"
                         >
@@ -99,8 +99,8 @@ const Navbar = () => {
 
                 {/* Cart */}
                 <Link to="/cart" className="relative">
-                    <img src={assets.cart_icon} alt="Cart" className="w-8" />
-                    <span className="absolute -bottom-1 -right-1 bg-black text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                    <img src={assets.cart_icon} alt="Cart" className="w-10" />
+                    <span className="absolute -bottom-1.25 -right-1.25 bg-black text-white text-xs w-6 h-6 flex items-center justify-center rounded-full">
                         {getCartCount()}
                     </span>
                 </Link>
