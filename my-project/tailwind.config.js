@@ -4,9 +4,17 @@ export default {
     "./index.html",
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
-  safelist: [ 
-    "bottom-[-5px]", 
-    "right-[-5px]", 
+    safelist: [
+    "bottom-[-5px]",
+    "right-[-5px]",
+    "absolute",
+    "top-full",
+    "right-0",
+    "z-50",
+    "bg-white",
+    "shadow-lg",
+    "rounded",
+    "hover:text-black",
   ],
   theme: {
     extend: {
