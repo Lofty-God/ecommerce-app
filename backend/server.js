@@ -28,10 +28,9 @@ app.use(express.json());
 const allowedOrigins = [
   'http://localhost:5173',
   'http://localhost:5174',
-  'http://localhost:4173',
-  'https://ecommerce-app-frontend-three-mu.vercel.app',
-  'https://ecommerce-app-admin-project.vercel.app/add',
-  'https://ecommerce-frontend-project-six.vercel.app'
+  'http://localhost:4173',  
+  'https://ecommerce-app-admin-project.vercel.app',  
+  'https://ecommerce-app-frontend-project.vercel.app'
 ];
 
 app.use(cors({
