@@ -8,7 +8,7 @@ const Navbar = () => {
     const { setShowSearch, getCartCount, navigate, token, setToken, setCartItems } = useContext(ShopContext);
     const logout = () => {
         navigate('/login')
-        localStorage.removeItem(token)
+        localStorage.removeItem('token')
         setToken('')
         setCartItems({})
 
@@ -40,7 +40,7 @@ const Navbar = () => {
                 <div className='group relative cursor-pointer' >
                     <img src={assets.profile_icon} alt="" className='w-7 ' />
                     {token &&
-                        <div className='absolute right-0 w-32 rounded hidden group-hover:block z-50 dropdown-menu'>
+                        <div className='absolute right-0 w-32 rounded hidden group-hover:block dropdown-menu'>
                             <div className='flex flex-col items-center py-3 px-2 bg-slate-100 text-gray-500 ' >
                                 <p className='py-2 text-sm font-medium hover:text-black  '>My-profile</p>
                                 <p onClick={() => navigate('/orders')} className='py-2 text-sm font-medium hover:text-black  '>Orders</p>
@@ -51,9 +51,9 @@ const Navbar = () => {
                 </div>
                 <Link to='/cart' className='flex items-center relative '>
                     <img src={assets.cart_icon} alt="" className='w-10' />
-                    <p className='absolute bg-black text-white text-center w-6 font-medium rounded-full bottom-[-5px] right-[-5px]   '>{getCartCount()}</p>
+                    <p className='absolute bg-black text-white text-center w-6 font-medium rounded-full -bottom-1.25 -right-1.25'>{getCartCount()}</p>
                 </Link>
-                <img src={assets.menu_icon} alt="" className='sm:hidden w-8 cursor-pointer' onClick={() => setVisible(true)} />
+                <img src={assets.menu_icon} alt="" className='sm:hidden w-8 cursor-pointer' onClick={() => setVisible(true)} />               
 
             </div>
             {/* sidebar menu for small screen */}
