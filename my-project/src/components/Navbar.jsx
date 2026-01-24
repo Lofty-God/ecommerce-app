@@ -60,7 +60,7 @@ const Navbar = () => {
                     aria-label="Search"
                     className="cursor-pointer"
                 >
-                    <img src={assets.search_icon} alt="Search" className="w-8" />
+                    <img src={assets.search_icon} alt="Search" className="w-10" />
                 </button>
 
                 {/* Profile */}
