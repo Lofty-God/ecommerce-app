@@ -206,7 +206,7 @@ const Navbar = () => {
                         </div>
                     } */}
                     {token && (
-                        <div className="relative" onMouseEnter={() => setShowProfile(true)} onMouseLeave={() => setShowProfile(false)}>
+                        <div className="relative" onClick={() => setShowProfile(!showProfile)} onMouseEnter={() => setShowProfile(true)} onMouseLeave={() => setShowProfile(false)}>
                             <img src={assets.profile_icon} alt="profile" className='w-8 cursor-pointer' />
 
                             {showProfile && (
