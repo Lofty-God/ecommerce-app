@@ -206,9 +206,11 @@ const Navbar = () => {
                         </div>
                     } */}
                     {token && (
-                        <div className="group relative" onClick={() => setShowProfile(!showProfile)} onMouseEnter={() => setShowProfile(true)} onMouseLeave={() => setShowProfile(false)}>
-                            <img src={assets.profile_icon} alt="profile" className='w-8 cursor-pointer' />
+                        <div className='group relative'>
+                            <div onClick={() => setShowProfile(true)} onMouseEnter={() => setShowProfile(true)} onMouseLeave={() => setShowProfile(false)}>
+                                <img src={assets.profile_icon} alt="profile" className='w-8 cursor-pointer' />
 
+                            </div>
                             {showProfile && (
                                 <div className="absolute right-0 top-full mt-0 bg-slate-100 text-gray-500 w-32 shadow-lg rounded z-50">
                                     <p className='py-2 text-sm font-medium px-4 hover:text-black'>My-profile</p>
@@ -217,6 +219,7 @@ const Navbar = () => {
                                 </div>
                             )}
                         </div>
+
                     )}
 
                 </div>
