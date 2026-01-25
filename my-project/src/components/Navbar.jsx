@@ -158,6 +158,7 @@ import { assets } from '../assets/Asset'
 import { Link, NavLink } from 'react-router-dom'
 import { ShopContext } from '../context/ShopContext'
 
+
 const Navbar = () => {
     const [visible, setVisible] = useState(false);
     const [showProfile, setShowProfile] = useState(false);
@@ -206,7 +207,7 @@ const Navbar = () => {
                     } */}
                     {token && (
                         <div className="relative" onMouseEnter={() => setShowProfile(true)} onMouseLeave={() => setShowProfile(false)}>
-                            <img src={assets.profile_icon} alt="" className='w-8 cursor-pointer' />
+                            <img src={assets.profile_icon} alt="profile" className='w-8 cursor-pointer' />
 
                             {showProfile && (
                                 <div className="absolute right-0 top-full mt-0 bg-slate-100 text-gray-500 w-32 shadow-lg rounded z-50">
