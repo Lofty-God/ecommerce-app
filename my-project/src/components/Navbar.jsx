@@ -195,7 +195,7 @@ const Navbar = () => {
                 <img onClick={() => setShowSearch(true)} src={assets.search_icon} alt="" className='w-10' />
                 <div className='group relative cursor-pointer' >
                     <img src={assets.profile_icon} alt="" className='w-7 ' />
-                    {token &&
+                    {/* {token &&
                         <div className='z-50 absolute right-0 w-32 rounded hidden group-hover:block dropdown-menu'>
                             <div className='flex flex-col items-center py-3 px-2 bg-slate-100 text-gray-500 ' >
                                 <p className='py-2 text-sm font-medium hover:text-black  '>My-profile</p>
@@ -203,7 +203,7 @@ const Navbar = () => {
                                 <p onClick={logout} className='py-2 text-sm font-medium hover:text-black  '>Logout</p>
                             </div>
                         </div>
-                    }
+                    } */}
                     {token && (
                         <div className="relative" onMouseEnter={() => setShowProfile(true)} onMouseLeave={() => setShowProfile(false)}>
                             <img src={assets.profile_icon} alt="" className='w-10 cursor-pointer' />
