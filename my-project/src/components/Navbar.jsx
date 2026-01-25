@@ -209,7 +209,7 @@ const Navbar = () => {
                             <img src={assets.profile_icon} alt="" className='w-8 cursor-pointer' />
 
                             {showProfile && (
-                                <div className="absolute right-0 top-full mt-1 bg-white shadow-lg rounded z-50">
+                                <div className="absolute right-0 top-full mt-0 bg-slate-100 text-gray-500 w-32 shadow-lg rounded z-50">
                                     <p className='py-2 text-sm font-medium px-4'>My-profile</p>
                                     <p onClick={() => navigate('/orders')} className='py-2 text-sm font-medium hover:text-black px-4 cursor-pointer'>Orders</p>
                                     <p onClick={logout} className='py-2 text-sm font-medium hover:text-black px-4 cursor-pointer'>Logout</p>
