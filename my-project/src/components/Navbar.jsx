@@ -161,6 +161,7 @@ import { ShopContext } from '../context/ShopContext'
 
 const Navbar = () => {
     const [visible, setVisible] = useState(false);
+    const [showProfile, setShowProfile] = useState(false);
     const { setShowSearch, getCartCount, navigate, token, setToken, setCartItems } = useContext(ShopContext);
     const logout = () => {
         navigate('/login')
@@ -193,20 +194,24 @@ const Navbar = () => {
             </ul>
             <div className='gap-3 flex items-center cursor-pointer' >
                 <img onClick={() => setShowSearch(true)} src={assets.search_icon} alt="" className='w-10' />
-                <div className='group relative' >
-                    <img src={assets.profile_icon} alt="profile" className='w-8 cursor-pointer' />
-                    <div className='group-hover:block hidden absolute right-0 dropdown-menu pt-4'>
-                        <div className="flex flex-col gap-2 w-36 py-2 px-3 bg-slate-100 text-gray-500 rounded">
-                            <p className='py-2 text-sm font-medium px-4 hover:text-black'>My-profile</p>
-                            <p onClick={() => navigate('/orders')} className='py-2 text-sm font-medium hover:text-black px-4 cursor-pointer'>Orders</p>
-                            <p onClick={logout} className='py-2 text-sm font-medium hover:text-black px-4 cursor-pointer'>Logout</p>
-                        </div>
+                {token && (
+                    <div className='group relative' onMouseEnter={() => setShowProfile(true)} onMouseLeave={() => setShowProfile(false)} >
+                        <img src={assets.profile_icon} alt="profile" className='w-8 cursor-pointer' />
+                        {showProfile && (
+                            <div className='group-hover:block hidden absolute right-0 dropdown-menu pt-4'>
+                                <div className="flex flex-col gap-2 w-36 py-2 px-3 bg-slate-100 text-gray-500 rounded">
+                                    <p className='py-2 text-sm font-medium px-4 hover:text-black'>My-profile</p>
+                                    <p onClick={() => navigate('/orders')} className='py-2 text-sm font-medium hover:text-black px-4 cursor-pointer'>Orders</p>
+                                    <p onClick={logout} className='py-2 text-sm font-medium hover:text-black px-4 cursor-pointer'>Logout</p>
+                                </div>
+                            </div>
+
+                        )}
 
                     </div>
 
+                )}
 
-
-                </div>
                 <Link to='/cart' className='flex items-center relative '>
                     <img src={assets.cart_icon} alt="" className='w-10' />
                     <p className='absolute bg-black text-white text-center w-6 font-medium rounded-full -bottom-1.25 -right-1.25'>{getCartCount()}</p>
