@@ -198,7 +198,7 @@ const Navbar = () => {
                     <div className='group relative' onMouseEnter={() => setShowProfile(true)} onMouseLeave={() => setShowProfile(false)} >
                         <img src={assets.profile_icon} alt="profile" className='w-8 cursor-pointer' />
                         {showProfile && (
-                            <div className='group-hover:block hidden absolute right-0 dropdown-menu pt-4'>
+                            <div className='absolute right-0 dropdown-menu pt-4'>
                                 <div className="flex flex-col gap-2 w-36 py-2 px-3 bg-slate-100 text-gray-500 rounded">
                                     <p className='py-2 text-sm font-medium px-4 hover:text-black'>My-profile</p>
                                     <p onClick={() => navigate('/orders')} className='py-2 text-sm font-medium hover:text-black px-4 cursor-pointer'>Orders</p>
