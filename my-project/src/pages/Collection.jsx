@@ -25,9 +25,13 @@ const Collection = () => {
       setCategory(prev=>[...prev, e.target.value])
     }
   }
-  // useEffect(()=>{
-  //   console.log(category)
-  // },[category]);
+  useEffect(()=>{
+    console.log(category)
+  },[category]);
+
+  useEffect(()=>{
+    console.log(subcategory)
+  },[subcategory])
 
   const toggleSubCategory = (e)=>{
     if(subcategory.includes(e.target.value)){
@@ -90,23 +94,26 @@ const Collection = () => {
             <input className='w-3' type={'checkbox'} value={'Women'} onChange={toggleCategory}/>Women
           </div>
           <div className='flex gap-3 cursor-pointer'>
-            <input className='w-3' type={'checkbox'} value={'Kid'} onChange={toggleCategory} />Kid
+            <input className='w-3' type={'checkbox'} value={'Boy'} onChange={toggleCategory} />Boy
+          </div>
+          <div className='flex gap-3 cursor-pointer'>
+            <input className='w-3' type={'checkbox'} value={'Girl'} onChange={toggleCategory} />Girl
           </div>
         </div>
         {/* subCategory */}
         <div className={`border border-gray-300 py-3 pl-6 my-3 ${showfilter? '' : 'hidden'} sm:block`} >
           <p className='text-xl text-gray-500 py-3 ' >TYPE</p>
           <div className='flex gap-3 cursor-pointer'>
-            <input className='w-3' type={'checkbox'} value={'Boy'} onChange={toggleSubCategory} />Boy
+            <input className='w-3' type={'checkbox'} value={'Kid'} onChange={toggleSubCategory} />Kid
           </div>
-          <div className='flex gap-3 cursor-pointer'>
+          {/* <div className='flex gap-3 cursor-pointer'>
             <input className='w-3' type={'checkbox'} value={'Girl'} onChange={toggleSubCategory} />Girl
-          </div>
+          </div> */}
           <div className='flex gap-3 cursor-pointer'>
             <input className='w-3' type={'checkbox'} value={'English'} onChange={toggleSubCategory} />English
           </div>
           <div className='flex gap-3 cursor-pointer'>
-            <input className='w-3' type={'checkbox'} value={'African'} onChange={toggleSubCategory} />African
+            <input className='w-3' type={'checkbox'} value={'Native'} onChange={toggleSubCategory} />Native
           </div>
 
         </div>
