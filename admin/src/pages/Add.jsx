@@ -86,12 +86,12 @@ const Add = ({token}) => {
       <div className='w-full' >
         <p>Product Name</p>
         <input id="productName" onChange={(e)=>setName(e.target.value) } value={name} 
-        className='w-full max-w-[500px] px-3 py-2' type="text" placeholder='Type here' required />
+        className='w-full max-w-125 px-3 py-2' type="text" placeholder='Type here' required />
       </div>
       <div className='w-full' >
         <p>Product Description </p>
         <input id="productDescription" onChange={(e)=>setDescription(e.target.value)} value={description} 
-        className='w-full max-w-[500px] px-3 py-2' type="text" placeholder='Write content here' required />
+        className='w-full max-w-125 px-3 py-2' type="text" placeholder='Write content here' required />
       </div>
       <div className='flex flex-col gap-3 w-full sm:flex-row sm:gap-8'>
         <div className='mb-2'>
@@ -99,7 +99,8 @@ const Add = ({token}) => {
           <select name="productCategory" onChange={(e)=>setCategory(e.target.value)} className='w-full px-3 py-2'>
             <option value="Men">Men</option>
             <option value="Women">Women</option>
-            <option value="Kid">Kid</option>
+            <option value="Boy">Boy</option>
+            <option value="Girl">Girl</option>
           </select>
         </div>
         <div className='mb-2'>
@@ -107,15 +108,14 @@ const Add = ({token}) => {
           <select name="Subcategory" onChange={(e)=>setSubcategory(e.target.value)} 
           className='w-full px-3 py-2'>
             <option value="English">English</option>
-            <option value="Africa">Africa</option>
-            <option value="Boy">Boy</option>
-            <option value="Girl">Girl</option>
+            <option value="Native">Native</option>
+            <option value="Kid">Kid</option>
           </select>
         </div>
         <div>
           <p>Product Price</p>
           <input onChange={(e)=>setPrice(e.target.value)} id="Price" value={price} 
-          className='w-full px-3 py-2 sm:w-[120px]' type="Number" placeholder='25' />
+          className='w-full px-3 py-2 sm:w-30' type="Number" placeholder='25' />
         </div>
       </div>
       <div>
