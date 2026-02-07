@@ -83,7 +83,7 @@ export const products = [
         name: 'men Senetor African Clothes',
         bestseller: true,
         category: 'Men',
-        subcategory: 'African',
+        subcategory: 'Native',
         description: 'Man putting on a lemon green african senetor.',
         size: ['S', 'M', 'L', 'XL', 'XXL'],
         date: 202508091134
@@ -91,11 +91,11 @@ export const products = [
     {
         _id: 'cd46',
         image: [men_African_Senetor_white_clothes_for_men],
-        price: 150,
-        name: 'men Senetor white clothes for men',
+        price: 30,
+        name: 'Senetor white clothes for men',
         bestseller: true,
         category: 'Men',
-        subcategory: 'African',
+        subcategory: 'Native',
         description: 'Man wearing a white senetor.',
         size: ['S', 'M', 'L', 'XL', 'XXL'],
         date: 202508091134
@@ -132,7 +132,7 @@ export const products = [
         name: 'men African Track suit',
         bestseller: true,
         category: 'Men',
-        subcategory: 'African',
+        subcategory: 'Native',
         description: 'A gray African senetor',
         size: ['S', 'M', 'L', 'XL', 'XXL'],
         date: 202508091134
@@ -217,11 +217,11 @@ export const products = [
     {
         _id: 'cn56',
         image: [kid_Girls_multicolor_dress],
-        price: 53,
+        price: 15,
         name: 'kid Girls multicolor dress',
         bestseller: true,
         category: 'Girl',
-        subcategory: 'Kid',
+        subcategory: 'Native',
         description: 'A girl wearing beautiful multicolor dress',
         size: ['S', 'M', 'L', 'XL', 'XXL'],
         date: 202508091134
@@ -412,7 +412,7 @@ export const products = [
     },
     {
         _id: 'yy14',
-        image: [kid_sitting_next_to_each_other.avif],
+        image: [kid_sitting_next_to_each_other],
         price: 50,
         name: 'kid sitting next to each other',
         bestseller: true,

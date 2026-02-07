@@ -13,7 +13,7 @@ const Collection = () => {
 
   useEffect(()=>{
     setFilterProducts(products)
-  },[])
+  },[products])
 
   const[category, setCategory] = useState([]);
   const[subcategory, setSubCategory] = useState([]);
@@ -51,6 +51,7 @@ const Collection = () => {
     if(subcategory.length > 0){
       productsCopy = productsCopy.filter(item => subcategory.includes(item.subcategory))
     }
+    console.log("Filtered products:", productsCopy);
     setFilterProducts(productsCopy)
   }
   useEffect(()=>{
@@ -106,9 +107,7 @@ const Collection = () => {
           <div className='flex gap-3 cursor-pointer'>
             <input className='w-3' type={'checkbox'} value={'Kid'} onChange={toggleSubCategory} />Kid
           </div>
-          {/* <div className='flex gap-3 cursor-pointer'>
-            <input className='w-3' type={'checkbox'} value={'Girl'} onChange={toggleSubCategory} />Girl
-          </div> */}
+          
           <div className='flex gap-3 cursor-pointer'>
             <input className='w-3' type={'checkbox'} value={'English'} onChange={toggleSubCategory} />English
           </div>
@@ -123,7 +122,7 @@ const Collection = () => {
         <div className='flex justify-between sm:text-2xl text-base mb-4  '>
           <Title text1={'ALL'} text2={'COLLECTIONS'} />
           <select onChange = {(e) => setSortType(e.target.value)} className='border-2 border-gray-300 px-3 text-sm'>
-            <option value='relevant'>Sort by: Relevant</option>
+            <option value='Relevant'>Sort by: Relevant</option>
             <option value='High to low'>Sort by: High to low</option>
             <option value='Low to high'>Sort by: Low to high</option>
           </select>
