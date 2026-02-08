@@ -16,7 +16,6 @@ import Searchbar from './components/Searchbar'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Verify from './pages/Verify'
-import Item from './pages/Item'
 import Scrolltotop from './components/Scrolltotop'
 
 const App = () => {
@@ -27,7 +26,6 @@ const App = () => {
         <Searchbar />
         <Scrolltotop />
         <Routes>
-            <Route path = '/item/:productId' element = {<Item />}/>
             <Route path='/product/:productId' element={<Product/>} />
             <Route path='/' element={<Home/>} />
             <Route path='/collection' element={<Collection />} />
