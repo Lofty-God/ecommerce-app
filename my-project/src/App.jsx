@@ -1,4 +1,5 @@
 import React from 'react'
+  
 import Home from './pages/Home'
 import Collection from './pages/Collection'
 import About from './pages/About'
@@ -16,27 +17,27 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Verify from './pages/Verify'
 import Item from './pages/Item'
+import Scrolltotop from './components/Scrolltotop'
 
 const App = () => {
   return (
-    <div className='px-4 sm:p-[5x] md:p-[7x] lg:p-[9x] '>
-
+    <div className='px-4 sm:p-5 md:p-7 lg:p-9'>
         <ToastContainer />
         <Navbar/>
         <Searchbar />
+        <Scrolltotop />
         <Routes>
+            <Route path = '/item/:productId' element = {<Item />}/>
+            <Route path='/product/:productId' element={<Product/>} />
             <Route path='/' element={<Home/>} />
             <Route path='/collection' element={<Collection />} />
             <Route path='/about' element={<About/>} />
             <Route path='/contact' element={<Contact/>} />
             <Route path='/orders' element={<Orders/>} />
             <Route path='/placeorder' element={<Placeorder/>} />
-            <Route path='/product/:productId' element={<Product/>} />
             <Route path='/login' element={<Login/>} />
             <Route path='/cart' element={<Cart/>} />
             <Route path='/verify' element={<Verify />} />
-            <Route path = '/item/:productId' element = {<Item />}/>
-
         </Routes>
         <Footer/>
       
