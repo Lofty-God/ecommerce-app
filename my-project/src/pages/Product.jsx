@@ -68,7 +68,7 @@ const Product = () => {
           </div>
 
 
-          <button onClick={() => addToCart(productData._id, size)}
+          <button onClick={() => {addToCart(productData._id, size)}}
             className=' bg-black text-white px-8 py-3 active:bg-gray-700 text-sm cursor-pointer'>ADD TO CART</button>
           <hr className='mt-8 sm:w-4/5' />
           <div className='flex flex-col gap-1 mt-3 text-gray-500 text-sm'>

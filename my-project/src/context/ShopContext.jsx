@@ -13,8 +13,9 @@ const ShopContextProvider = (props) => {
   const [showSearch, setShowSearch] = useState(false);
   const [cartItems, setCartItems] = useState({});
   const [products, setProducts] = useState([]);
-  const [token, setToken] = useState('')
+  const [token, setToken] = useState('');
   const navigate = useNavigate();
+
 
 
   const addToCart = async (itemId, size) => {
@@ -35,6 +36,11 @@ const ShopContextProvider = (props) => {
 
     }
     setCartItems(cartData);
+    if(cartData){
+      toast.success('Item added to cart')
+    }else{
+      toast.error('Failed to add item to cart')
+    }
 
     if (token) {
       try {
@@ -48,9 +54,6 @@ const ShopContextProvider = (props) => {
 
 
   }
-
-
-
   const getCartCount = () => {
     let totalCount = 0;
     for (const items in cartItems) {
@@ -80,20 +83,7 @@ const ShopContextProvider = (props) => {
     }
 
   }
-  // const getCartAmount = () => {
-  //   let totalAmount = 0;
-  //   for (const items in cartItems) {
-  //     const itemInfo = products.find(product => product._id === items);
-  //     if (!itemInfo) continue; // safeguard if product not found
-  //     for (const size in cartItems[items]) {
-  //       const quantity = cartItems[items][size];
-  //       if (quantity > 0) {
-  //         totalAmount += itemInfo.price * quantity;
-  //       }
-  //     }
-  //   }
-  //   return totalAmount;
-  // };
+  
   const getCartAmount = () => {
     let totalAmount = 0;
     for (const items in cartItems) {
