@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { ShopContext } from '../context/ShopContext';
 import { assets } from '../assets/Asset';
 import Relatedproducts from '../components/Relatedproducts';
@@ -7,7 +7,7 @@ import Relatedproducts from '../components/Relatedproducts';
 const Product = () => {
   const { productId } = useParams();
   console.log(productId);
-  const { products, currency, addToCart } = useContext(ShopContext)
+  const { products, currency, addToCart, getCartCount } = useContext(ShopContext)
   const [productData, setProductData] = useState(null);
   const [image, setImage] = useState('')
   const [size, setSize] = useState('')
@@ -66,10 +66,13 @@ const Product = () => {
             </div>
 
           </div>
-
-
-          <button onClick={() => {addToCart(productData._id, size)}}
-            className=' bg-black text-white px-8 py-3 active:bg-gray-700 text-sm cursor-pointer'>ADD TO CART</button>
+          <div className='flex items-center gap-20'>
+            <button onClick={() => { addToCart(productData._id, size) }}className='flex items-center gap-2 bg-black text-white px-8 py-3 active:bg-gray-700 text-sm cursor-pointer'>ADD TO CART </button>
+            <Link to='/cart' className='flex items-center relative'>
+              <img src={assets.cart_icon} alt='' className='w-10' />
+              <p className='absolute bg-black text-white text-center w-6 font-medium rounded-full -bottom-1.25 -right-1.25'>{getCartCount()}</p>
+            </Link>
+          </div>
           <hr className='mt-8 sm:w-4/5' />
           <div className='flex flex-col gap-1 mt-3 text-gray-500 text-sm'>
             <p>100% Original Product</p>
