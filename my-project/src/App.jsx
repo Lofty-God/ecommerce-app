@@ -16,7 +16,7 @@ import Searchbar from './components/Searchbar'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Verify from './pages/Verify'
-import Scrolltotop from 'src/components/Scrolltotop'
+import Scrolltotop from './components/Scrolltotop.jsx'
 
 const App = () => {
   return (
