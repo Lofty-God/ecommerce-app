@@ -25,21 +25,55 @@ const Placeorder = () => {
     const value = event.target.value
     setFormData(data => ({ ...data, [name]: value }))
   }
+  const initPaystack = (orderData) => {
 
-  const initPay = (order)=>{
+    const handler = window.PaystackPop.setup({
+      key: import.meta.env.VITE_PAYSTACK_PUBLIC_KEY,
+      email: formData.email,
+      amount: orderData.amount * 100,
+      currency: "NGN",
+      ref: "" + Math.floor(Math.random() * 1000000000 + 1),
+      callback: function (response) {
+        // wrap async work in an IIFE
+        (async () => {
+          try {
+            const { data } = await axios.post(
+              backendUrl + "/api/order/verifyPaystack",
+              { reference: response.reference },
+              { headers: { token } }
+            );
+            if (data.success) {
+              navigate("/orders");
+              setCartItems({});
+            } else {
+              toast.error("Payment verification failed");
+            }
+          } catch (error) {
+            toast.error(error.message);
+          }
+        })();
+      },
+      onClose: function () {
+        toast.error("Transaction was not completed, window closed.");
+      },
+    });
+    handler.openIframe();
+  };
+
+  const initPay = (order) => {
     const options = {
       key: import.meta.env.VITE_RAZORPAY_KEY_ID,
       amount: order.amount,
       currency: order.currency,
-      name:"order Payment",
+      name: "order Payment",
       description: "Order Payment",
-      order_id : order.id,
+      order_id: order.id,
       receipt: order.receipt,
-      handler: async(response)=>{
+      handler: async (response) => {
         console.log(response)
         try {
-          const {data} = await axios.post(backendUrl+"/api/order/verifyRazorpay", response, {header:{token}})
-          if(data.success){
+          const { data } = await axios.post(backendUrl + "/api/order/verifyRazorpay", response, { header: { token } })
+          if (data.success) {
             navigate("/orders")
             setCartItems({})
           }
@@ -47,13 +81,14 @@ const Placeorder = () => {
         } catch (error) {
           console.log(error)
           toast.error(error)
-          
+
         }
       }
     }
+
     const rzp = new window.Razorpay(options)
     rzp.open()
-    
+
   }
   const onSubmitHandler = async (event) => {
     event.preventDefault()
@@ -88,15 +123,18 @@ const Placeorder = () => {
             toast.error(response.data.message)
           }
           break;
-        case 'stripe':
-          const responseStripe = await axios.post(backendUrl + '/api/order/stripe', orderData, { headers: { token } })
-          if (responseStripe.data.success) {
-            const { session_url } = responseStripe.data
-            window.location.replace(session_url)
+
+        // API calls for Paystack
+        case 'paystack':
+          const responsePaystack = await axios.post(backendUrl + '/api/order/paystack', orderData, { headers: { token } })
+          if (responsePaystack.data.success) {
+            initPaystack(responsePaystack.data.order);
           } else {
-            toast.error(responseStripe.data.message)
+            toast.error(responsePaystack.data.message)
           }
           break;
+
+        // API calls for Razorpay
         case 'razorpay':
           const responseRazorpay = await axios.post(backendUrl + '/api/order/razorpay', orderData, { headers: { token } })
           if (responseRazorpay.data.success) {
@@ -116,7 +154,7 @@ const Placeorder = () => {
   return (
     <form onSubmit={onSubmitHandler} className='flex flex-col sm:flex-row justify-between gap-4 pt-10 sm:py-14 min-h-[80vh] border-t ' >
       {/* -------Left-side--------- */}
-      <div className='flex flex-col gap-4 w-full sm:max-w-[480px] ' >
+      <div className='flex flex-col gap-4 w-full sm:max-w-120 ' >
         <div className='text-xl sm:text-2xl my-3' >
           <Title text1={'DELIVERY'} text2={'INFORMATION'} />
         </div>
@@ -153,6 +191,11 @@ const Placeorder = () => {
               <p className={`border rounded-full min-w-3.5 h-3.5 ${method === 'razorpay' ? 'bg-green-500' : ''}`}></p>
               <img className='h-4 mx-4' src={assets.razorpay_logo} alt="" />
             </div>
+            <div onClick={() => setMethod('paystack')} className='flex gap-3 items-center border p-2 px-3 cursor-pointer '>
+              <p className={`border rounded-full min-w-3.5 h-3.5 ${method === 'paystack' ? 'bg-green-500' : ''}`}></p>
+              <img className='h-6 mx-4' src={assets.paystack_logo} alt="" />
+            </div>
+
             <div onClick={() => setMethod('cod')} className='flex gap-3 items-center border p-2 px-3 cursor-pointer '>
               <p className={`border rounded-full min-w-3.5 h-3.5 ${method === 'cod' ? 'bg-green-500' : ''}`}></p>
               <p className='text-gray-500 text-sm font-medium mx-4'>CASH ON DELIVERY</p>

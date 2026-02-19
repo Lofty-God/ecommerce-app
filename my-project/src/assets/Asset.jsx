@@ -71,6 +71,7 @@ import stripe_logo from './stripe_logo.png'
 import razorpay_logo from './razorpay_logo.png'
 import about_img from './about_img.jpg'
 import contact_img from './contact_img.jpg'
+import paystack_logo from './paystack_logo.png'
 
 
 
@@ -716,6 +717,8 @@ export const assets = {
     star_icon,
     stripe_logo,
     razorpay_logo,
+    paystack_logo,
     about_img,
     contact_img
+    
 }

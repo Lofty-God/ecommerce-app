@@ -76,7 +76,7 @@ const Product = () => {
           <hr className='mt-8 sm:w-4/5' />
           <div className='flex flex-col gap-1 mt-3 text-gray-500 text-sm'>
             <p>100% Original Product</p>
-            <p>Cash On Delivery Is Avilable On This Product</p>
+            <p>Cash On Delivery Is Available On This Product</p>
             <p>Easy Return And Exchange Policy Within 7 Days On This Product</p>
           </div>
 
