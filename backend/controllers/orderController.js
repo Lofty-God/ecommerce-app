@@ -1,5 +1,6 @@
 import orderModel from "../models/orderModel.js";
 import userModel from "../models/userModel.js";
+import axios from "axios";
 import Stripe from 'stripe';
 import razorpay from 'razorpay';
 
@@ -141,7 +142,7 @@ const placeOrderRazorpay = async (req, res) => {
             amount: amount * 100,
             receipt: newOrder._id.toString()
         }
-        await paystackInstance.orders.create(options, (error, order) => {
+        await razorpayInstance.orders.create(options, (error, order) => {
             if (error) {
                 console.log(error)
                 return res.json({ success: false, message: error })
@@ -175,6 +176,63 @@ const verifyRazorpay = async(req,res)=>{
     }
 
 }
+
+
+// Place order with Paystack
+export const placeOrderPaystack = async (req, res) => {
+  try {
+    const { userId, items, amount, address } = req.body;
+
+    const orderData = {
+      userId,
+      items,
+      amount,
+      address,
+      paymentMethod: "Paystack",
+      payment: false,
+      date: Date.now(),
+    };
+
+    const newOrder = new orderModel(orderData);
+    await newOrder.save();
+
+    // Return order data so frontend can call initPaystack
+    res.json({ success: true, order: newOrder });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: error.message });
+  }
+};
+
+// Verify Paystack payment
+export const verifyPaystack = async (req, res) => {
+  const { reference, userId } = req.body;
+  try {
+    const response = await axios.get(
+      `https://api.paystack.co/transaction/verify/${reference}`,
+      {
+        headers: {
+          Authorization: `Bearer ${process.env.PAYSTACK_SECRET_KEY}`,
+        },
+      }
+    );
+
+    if (response.data.data.status === "success") {
+      // Mark order as paid
+      await orderModel.findByIdAndUpdate(response.data.data.metadata.orderId, {
+        payment: true,
+      });
+      await userModel.findByIdAndUpdate(userId, { cartData: {} });
+      return res.json({ success: true, message: "Payment Successful" });
+    } else {
+      return res.json({ success: false, message: "Payment not successful" });
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ success: false, message: error.message });
+  }
+};
+
 
 // All orders data for admin panel
 const allOrders = async (req, res) => {
