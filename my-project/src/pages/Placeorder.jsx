@@ -193,7 +193,7 @@ const Placeorder = () => {
             </div>
             <div onClick={() => setMethod('paystack')} className='flex gap-3 items-center border p-2 px-3 cursor-pointer '>
               <p className={`border rounded-full min-w-3.5 h-3.5 ${method === 'paystack' ? 'bg-green-500' : ''}`}></p>
-              <img className='h-6 mx-4' src={assets.paystack_logo} alt="" />
+              <img className='h-8 w-20 mx-1 my-1' src={assets.paystack_logo} alt="" />
             </div>
 
             <div onClick={() => setMethod('cod')} className='flex gap-3 items-center border p-2 px-3 cursor-pointer '>
