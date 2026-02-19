@@ -172,7 +172,7 @@ const Placeorder = () => {
           <input required onChange={onChangeHandler} name='zipcode' id='zipcode' autoComplete='zipcode' value={formData.zipcode} className='border border-gray-300 px-1.5 py-3.5 w-full rounded' type="number" placeholder='Zipcode' />
           <input required onChange={onChangeHandler} name='country' id='country' autoComplete='country' value={formData.country} className='border border-gray-300 px-1.5 py-3.5 w-full rounded' type="text" placeholder='Country' />
         </div>
-        <input required onChange={onChangeHandler} name='phone' id='phone' autoComplete='phone' value={formData.phone} className='border border-gray-300 px-1.5 py-3.5 w-full rounded' type="number" placeholder='Phone number' />
+        <input required onChange={onChangeHandler} name='phone' id='phone' autoComplete='phone' value={formData.phone} className='border border-gray-300 px-1.5 py-3.5 w-full rounded' type="tel" placeholder='Phone number' />
       </div>
       {/* ----------Right side----------- */}
       <div className='mt-8' >
